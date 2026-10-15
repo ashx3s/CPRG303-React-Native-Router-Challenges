@@ -1,113 +1,51 @@
 import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import { Pressable, Text, View } from "react-native";
-import { useRouter } from "expo-router";
+import { View } from "react-native";
+import DocsButton from "../../components/DocsButton";
 
-function DocsButton() {
-  const router = useRouter();
+type IconName = React.ComponentProps<typeof Ionicons>["name"];
+
+const TABS: { name: string; title: string; icon: IconName }[] = [
+  { name: "index", title: "Home", icon: "home" },
+  { name: "todo-demo", title: "Todos", icon: "checkbox" },
+  { name: "project", title: "Projects", icon: "briefcase" },
+  { name: "signup", title: "User", icon: "person" },
+];
+
+function HeaderStar() {
   return (
-    <View style={{ flexDirection: "row", alignItems: "center" }}>
-      <Pressable
-        onPress={() => router.push("/docs")}
-        style={{ padding: 10, flexDirection: "row", alignItems: "center" }}
-      >
-        <Ionicons name="help-circle-outline" size={24} color="#007AFF" />
-      </Pressable>
+    <View
+      style={{
+        flexDirection: "row",
+        alignItems: "center",
+        marginHorizontal: 10,
+      }}
+    >
+      <Ionicons name="star" size={24} color="#61DAFB" />
     </View>
   );
 }
 
 export default function TabLayout() {
   return (
-    <Tabs>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: "Home",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home" color={color} size={size} />
-          ),
-          headerLeft: () => (
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                marginLeft: 10,
-                marginRight: 10,
-              }}
-            >
-              <Ionicons name="star" size={24} color="#61DAFB" />
-            </View>
-          ),
-          headerRight: () => <DocsButton />,
-        }}
-      />
-      <Tabs.Screen
-        name="todo-demo"
-        options={{
-          title: "Todos",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="checkbox" color={color} size={size} />
-          ),
-          headerLeft: () => (
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                marginLeft: 10,
-                marginRight: 10,
-              }}
-            >
-              <Ionicons name="star" size={24} color="#61DAFB" />
-            </View>
-          ),
-          headerRight: () => <DocsButton />,
-        }}
-      />
-      <Tabs.Screen
-        name="project"
-        options={{
-          title: "Projects",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="briefcase" color={color} size={size} />
-          ),
-          headerLeft: () => (
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                marginLeft: 10,
-                marginRight: 10,
-              }}
-            >
-              <Ionicons name="star" size={24} color="#61DAFB" />
-            </View>
-          ),
-          headerRight: () => <DocsButton />,
-        }}
-      />
-      <Tabs.Screen
-        name="signup"
-        options={{
-          title: "User",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="person" color={color} size={size} />
-          ),
-          headerLeft: () => (
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                marginLeft: 10,
-                marginRight: 10,
-              }}
-            >
-              <Ionicons name="star" size={24} color="#61DAFB" />
-            </View>
-          ),
-          headerRight: () => <DocsButton />,
-        }}
-      />
+    <Tabs
+      screenOptions={{
+        headerLeft: () => <HeaderStar />,
+        headerRight: () => <DocsButton />,
+      }}
+    >
+      {TABS.map(({ name, title, icon }) => (
+        <Tabs.Screen
+          key={name}
+          name={name}
+          options={{
+            title,
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name={icon} color={color} size={size} />
+            ),
+          }}
+        />
+      ))}
     </Tabs>
   );
 }
