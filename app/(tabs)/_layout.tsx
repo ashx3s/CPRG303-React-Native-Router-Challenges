@@ -12,7 +12,6 @@ function DocsButton() {
         style={{ padding: 10, flexDirection: "row", alignItems: "center" }}
       >
         <Ionicons name="help-circle-outline" size={24} color="#007AFF" />
-        {/*<Text style={{ marginLeft: 5, color: "#007AFF" }}>Docs</Text>*/}
       </Pressable>
     </View>
   );
@@ -67,7 +66,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="week"
+        name="project"
         options={{
           title: "Projects",
           tabBarIcon: ({ color, size }) => (

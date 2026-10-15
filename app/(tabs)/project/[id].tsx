@@ -1,18 +1,20 @@
 import { View, Text, StyleSheet } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 export default function WeekDetailScreen() {
-  interface Week {
+  interface Project {
     id: number;
     topic: string;
   }
   const { id } = useLocalSearchParams();
-  const weeks = require("../../../data/weeks.json");
-  const week = weeks.find((week: Week) => week.id === Number(id));
+  const projects = require("../../../data/projects.json");
+  const project = projects.find(
+    (project: Project) => project.id === Number(id),
+  );
 
-  if (!week) {
+  if (!project) {
     return (
       <View style={styles.container}>
-        <Text>Week not found</Text>
+        <Text>Project not found</Text>
       </View>
     );
   }
@@ -20,10 +22,10 @@ export default function WeekDetailScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>
-        Week {week.id}: {week.topic}
+        Project {project.id}: {project.topic}
       </Text>
       <Text style={styles.content}>
-        This is the content for Week {week.id}.
+        This is the content for Project {project.id}.
       </Text>
     </View>
   );
