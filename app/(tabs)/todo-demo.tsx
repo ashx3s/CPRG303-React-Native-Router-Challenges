@@ -3,23 +3,24 @@ import { View, Text, StyleSheet } from "react-native";
 import { TodoList, TodoItem } from "../../components/TodoList";
 import { AddTodo } from "../../components/AddTodo";
 
-const seed: TodoItem[] = [
-  { id: 1, title: "Make Breakfast" },
-  { id: 2, title: "Mark Quizzes" },
-];
+const seed: TodoItem[] = require("../../data/todos.json");
 
 export default function TodoScreen() {
   const [todos, setTodos] = useState<TodoItem[]>(seed);
 
-  function addTodo(title: string) {
-    setTodos((prev) => [...prev, { id: Date.now(), title }]);
+  function addTodo(title: string, description: string) {
+    setTodos((prev) => [...prev, { id: Date.now(), title, description }]);
+  }
+
+  function deleteTodo(id: number) {
+    setTodos((prev) => prev.filter((todo) => todo.id !== id));
   }
 
   return (
     <View style={{ flex: 1 }}>
       <Text style={styles.title}>Todo List</Text>
       <AddTodo onAdd={addTodo} />
-      <TodoList list={todos} />
+      <TodoList list={todos} onDelete={deleteTodo} />
     </View>
   );
 }

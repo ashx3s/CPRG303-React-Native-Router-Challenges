@@ -8,8 +8,8 @@ const seed: TodoItem[] = require("../../data/todos.json");
 export function TodoDemo() {
   const [todos, setTodos] = useState<TodoItem[]>(seed);
 
-  function addTodo(title: string) {
-    setTodos((prev) => [...prev, { id: Date.now(), title }]);
+  function addTodo(title: string, description: string) {
+    setTodos((prev) => [...prev, { id: Date.now(), title, description }]);
   }
 
   return (

@@ -1,39 +1,56 @@
-import { FlatList, Pressable, Text, StyleSheet } from "react-native";
-import { useRouter } from "expo-router";
+import { View, Text, FlatList, StyleSheet } from "react-native";
+import { Link } from "expo-router";
 
-const projects = require("../../../data/projects.json");
+// Sample data for projects
+const projects = [
+  { id: "1", name: "Project 1", description: "Description for Project 1" },
+  { id: "2", name: "Project 2", description: "Description for Project 2" },
+  { id: "3", name: "Project 3", description: "Description for Project 3" },
+];
 
-export default function ProjectsScreen() {
-  const router = useRouter();
-
+export default function ProjectList() {
   return (
-    <FlatList
-      data={projects}
-      keyExtractor={(item) => item.id.toString()}
-      ListHeaderComponent={<Text style={styles.title}>Projects</Text>}
-      contentContainerStyle={styles.content}
-      renderItem={({ item }) => (
-        <Pressable
-          style={styles.row}
-          onPress={() =>
-            router.push({
-              pathname: "/project/[id]",
-              params: { id: item.id },
-            })
-          }
-        >
-          <Text style={styles.rowText}>
-            Project {item.id}: {item.topic}
-          </Text>
-        </Pressable>
-      )}
-    />
+    <View style={styles.container}>
+      <Text style={styles.title}>Projects</Text>
+      <FlatList
+        data={projects}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <Link href={`/project/${item.id}`} asChild>
+            <View style={styles.projectItem}>
+              <Text style={styles.projectName}>{item.name}</Text>
+              <Text style={styles.projectDescription}>{item.description}</Text>
+            </View>
+          </Link>
+        )}
+      />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  content: { padding: 20, gap: 10 },
-  title: { fontSize: 28, fontWeight: "bold", marginBottom: 10 },
-  row: { padding: 16, borderWidth: 1, borderColor: "#999", borderRadius: 8 },
-  rowText: { fontSize: 18 },
+  container: {
+    flex: 1,
+    padding: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 20,
+    textAlign: "center",
+  },
+  projectItem: {
+    padding: 15,
+    marginBottom: 10,
+    backgroundColor: "#f5f5f5",
+    borderRadius: 5,
+  },
+  projectName: {
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  projectDescription: {
+    fontSize: 14,
+    color: "#666",
+  },
 });
