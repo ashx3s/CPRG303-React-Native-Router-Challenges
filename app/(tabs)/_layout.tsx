@@ -18,6 +18,17 @@ function DocsButton() {
   );
 }
 
+// Option A: Navigation Consistency
+// TODO: Fix navigation so tab navigation does not disappear when navigating through Docs
+// TODO: Make Docs and AppName follow a consistent navigation structure
+// TODO: Test the result by moving between the main tabs and navigating deeper into Docs
+
+// Option B: Reusable Tab Configuration
+// TODO: Identify the options currently being configured for the tabs
+// TODO: Create a reusable component that accepts the needed options through props
+// TODO: Refactor the tabs to use your component instead of repeating the configuration
+// TODO: Make sure different tabs can still provide their own option values where needed
+
 export default function TabLayout() {
   return (
     <Tabs>
