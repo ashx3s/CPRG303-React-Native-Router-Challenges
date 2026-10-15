@@ -33,7 +33,8 @@ export default function TabLayout() {
               style={{
                 flexDirection: "row",
                 alignItems: "center",
-                marginLeft: 12,
+                marginLeft: 10,
+                marginRight: 10,
               }}
             >
               <Ionicons name="star" size={24} color="#61DAFB" />
