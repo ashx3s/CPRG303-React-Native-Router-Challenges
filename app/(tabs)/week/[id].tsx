@@ -1,21 +1,12 @@
 import { View, Text, StyleSheet } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 export default function WeekDetailScreen() {
-  interface Week {
-    id: number;
-    topic: string;
-  }
   const { id } = useLocalSearchParams();
   const weeks = require("../../../data/weeks.json");
-  const week = weeks.find((week: Week) => week.id === Number(id));
+  // TODO: Resolve this type error
+  const week = weeks.find((week) => week.id === Number(id));
 
-  if (!week) {
-    return (
-      <View style={styles.container}>
-        <Text>Week not found</Text>
-      </View>
-    );
-  }
+  // return a fallback view
 
   return (
     <View style={styles.container}>

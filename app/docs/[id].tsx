@@ -1,13 +1,19 @@
-import { View, Text, StyleSheet } from 'react-native';
-import { useLocalSearchParams } from 'expo-router';
+import { View, Text, StyleSheet } from "react-native";
+import { useLocalSearchParams } from "expo-router";
 
 const docs = [
-  { id: '1', title: 'Getting Started', content: 'Welcome to the documentation!' },
-  { id: '2', title: 'Installation', content: 'How to install the app' },
-  { id: '3', title: 'Usage', content: 'How to use the app' }
+  {
+    id: "1",
+    title: "Getting Started",
+    content: "Welcome to the documentation!",
+  },
+  { id: "2", title: "Installation", content: "How to install the app" },
+  { id: "3", title: "Usage", content: "How to use the app" },
 ];
 
 export default function DocDetailScreen() {
+  // useLocalSearchParams is used to get the id from the URL
+  // Hint: This hook returns an object with all the search parameters from the URL
   const { id } = useLocalSearchParams();
   const doc = docs.find((d) => d.id === id);
 
@@ -34,7 +40,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 20,
   },
   content: {
