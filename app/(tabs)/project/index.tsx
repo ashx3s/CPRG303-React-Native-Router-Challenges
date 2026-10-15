@@ -1,7 +1,7 @@
 import { FlatList, Pressable, Text, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
 
-const projects = require("../../../data/weeks.json");
+const projects = require("../../../data/projects.json");
 
 export default function ProjectsScreen() {
   const router = useRouter();
@@ -17,14 +17,12 @@ export default function ProjectsScreen() {
           style={styles.row}
           onPress={() =>
             router.push({
-              pathname: "/week/[id]",
+              pathname: "/project/[id]",
               params: { id: item.id },
             })
           }
         >
-          <Text style={styles.rowText}>
-            Project {item.id}: {item.topic}
-          </Text>
+          <Text style={styles.rowText}>{item.title}</Text>
         </Pressable>
       )}
     />

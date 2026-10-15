@@ -1,0 +1,87 @@
+[
+  {
+    "id": 1,
+    "title": "Introduction Project",
+    "description": "Basic introduction to React Native",
+    "todos": [
+      {
+        "id": 0,
+        "title": "Set up development environment",
+        "description": "Install Node.js, Expo CLI, and Android/iOS simulators"
+      },
+      {
+        "id": 1,
+        "title": "Create first app",
+        "description": "Generate a new Expo project and run it"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Layout and Styling Project",
+    "description": "Learn about layout and styling in React Native",
+    "todos": [
+      {
+        "id": 0,
+        "title": "Understand Flexbox",
+        "description": "Learn how Flexbox works in React Native"
+      },
+      {
+        "id": 1,
+        "title": "Create a simple layout",
+        "description": "Build a basic layout with Flexbox"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Components and Props Project",
+    "description": "Learn about components and props in React Native",
+    "todos": [
+      {
+        "id": 0,
+        "title": "Create reusable components",
+        "description": "Build components that can be reused throughout the app"
+      },
+      {
+        "id": 1,
+        "title": "Pass data with props",
+        "description": "Learn how to pass data between components using props"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "State Project",
+    "description": "Learn about state management in React Native",
+    "todos": [
+      {
+        "id": 0,
+        "title": "Understand useState",
+        "description": "Learn how to use the useState hook for state management"
+      },
+      {
+        "id": 1,
+        "title": "Build a counter app",
+        "description": "Create a simple counter app using useState"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Navigation Project",
+    "description": "Learn about navigation in React Native",
+    "todos": [
+      {
+        "id": 0,
+        "title": "Set up navigation",
+        "description": "Install and configure React Navigation"
+      },
+      {
+        "id": 1,
+        "title": "Create multiple screens",
+        "description": "Build multiple screens and set up navigation between them"
+      }
+    ]
+  }
+]

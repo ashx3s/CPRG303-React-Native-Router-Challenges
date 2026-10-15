@@ -1,29 +1,4 @@
-import { Tabs } from "expo-router";
-import { Ionicons } from "@expo/vector-icons";
-import { Pressable, Text, View } from "react-native";
-import { useRouter } from "expo-router";
-
-function DocsButton() {
-  const router = useRouter();
-  return (
-    <View style={{ flexDirection: "row", alignItems: "center" }}>
-      <Pressable
-        onPress={() => router.push("/docs")}
-        style={{ padding: 10, flexDirection: "row", alignItems: "center" }}
-      >
-        <Ionicons name="help-circle-outline" size={24} color="#007AFF" />
-        {/*<Text style={{ marginLeft: 5, color: "#007AFF" }}>Docs</Text>*/}
-      </Pressable>
-    </View>
-  );
-}
-
-export default function TabLayout() {
-  return (
-    <Tabs>
-      <Tabs.Screen
-        name="index"
-        options={{
+import { Tabs }
           title: "Home",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" color={color} size={size} />
