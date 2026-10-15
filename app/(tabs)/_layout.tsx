@@ -1,4 +1,40 @@
-import { Tabs }
+import { Tabs } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
+import { Pressable, Text, View } from "react-native";
+import { useRouter } from "expo-router";
+
+function DocsButton() {
+  const router = useRouter();
+  return (
+    <View style={{ flexDirection: "row", alignItems: "center" }}>
+      <Pressable
+        onPress={() => router.push("/docs")}
+        style={{ padding: 10, flexDirection: "row", alignItems: "center" }}
+      >
+        <Ionicons name="help-circle-outline" size={24} color="#007AFF" />
+        {/*<Text style={{ marginLeft: 5, color: "#007AFF" }}>Docs</Text>*/}
+      </Pressable>
+    </View>
+  );
+}
+
+// Option A: Navigation Consistency
+// TODO: Fix navigation so tab navigation does not disappear when navigating through Docs
+// TODO: Make Docs and AppName follow a consistent navigation structure
+// TODO: Test the result by moving between the main tabs and navigating deeper into Docs
+
+// Option B: Reusable Tab Configuration
+// TODO: Identify the options currently being configured for the tabs
+// TODO: Create a reusable component that accepts the needed options through props
+// TODO: Refactor the tabs to use your component instead of repeating the configuration
+// TODO: Make sure different tabs can still provide their own option values where needed
+
+export default function TabLayout() {
+  return (
+    <Tabs>
+      <Tabs.Screen
+        name="index"
+        options={{
           title: "Home",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" color={color} size={size} />
@@ -42,7 +78,7 @@ import { Tabs }
         }}
       />
       <Tabs.Screen
-        name="week"
+        name="project"
         options={{
           title: "Projects",
           tabBarIcon: ({ color, size }) => (
