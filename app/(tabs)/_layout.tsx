@@ -55,14 +55,13 @@ export default function TabLayout() {
                 flexDirection: "row",
                 alignItems: "center",
                 marginLeft: 10,
+                marginRight: 10,
               }}
             >
-              <Ionicons name="logo-react" size={24} color="#61DAFB" />
-              <Text style={{ marginLeft: 5, fontSize: 18, fontWeight: "bold" }}>
-                AppName
-              </Text>
+              <Ionicons name="star" size={24} color="#61DAFB" />
             </View>
           ),
+          headerRight: () => <DocsButton />,
         }}
       />
       <Tabs.Screen
@@ -78,14 +77,13 @@ export default function TabLayout() {
                 flexDirection: "row",
                 alignItems: "center",
                 marginLeft: 10,
+                marginRight: 10,
               }}
             >
-              <Ionicons name="logo-react" size={24} color="#61DAFB" />
-              <Text style={{ marginLeft: 5, fontSize: 18, fontWeight: "bold" }}>
-                AppName
-              </Text>
+              <Ionicons name="star" size={24} color="#61DAFB" />
             </View>
           ),
+          headerRight: () => <DocsButton />,
         }}
       />
       <Tabs.Screen
@@ -101,14 +99,13 @@ export default function TabLayout() {
                 flexDirection: "row",
                 alignItems: "center",
                 marginLeft: 10,
+                marginRight: 10,
               }}
             >
-              <Ionicons name="logo-react" size={24} color="#61DAFB" />
-              <Text style={{ marginLeft: 5, fontSize: 18, fontWeight: "bold" }}>
-                AppName
-              </Text>
+              <Ionicons name="star" size={24} color="#61DAFB" />
             </View>
           ),
+          headerRight: () => <DocsButton />,
         }}
       />
     </Tabs>
